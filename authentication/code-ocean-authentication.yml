@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/code-ocean-openapi.yml
+docs: https://docs.codeocean.com/user-guide/code-ocean-api/authentication
+summary:
+  types:
+  - http
+  token: scoped personal access token (prefix cop_), presented as HTTP Basic username with empty password
+  scopes_ref: scopes/code-ocean-scopes.yml
+schemes:
+- name: accessToken
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication. Provide your Code Ocean access token (prefix `cop_`)
+    as the basic-auth username with an empty password, e.g. `-u "cop_xxxxxxxxxx:"`.
+  sources:
+  - openapi/code-ocean-openapi.yml

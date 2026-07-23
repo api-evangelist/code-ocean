@@ -1,0 +1,423 @@
+openapi: 3.1.0
+info:
+  title: Code Ocean Capsules API
+  version: v1
+  description: The Code Ocean REST API provides programmatic access to the Code Ocean computational research platform. It is organized around REST, accepts and returns JSON-encoded request bodies and responses, and uses standard HTTP response codes, authentication, and verbs. The API lets you manage the three core Code Ocean resources — Capsules and Pipelines (reproducible compute environments), Computations (runs of those capsules/pipelines), and Data Assets (versioned datasets) — so you can automate reproducible research and data-analysis workflows end to end.
+  contact:
+    name: Code Ocean
+    email: dev@codeocean.com
+    url: https://docs.codeocean.com/user-guide/code-ocean-api
+  license:
+    name: Proprietary
+  x-generated-by: API Evangelist enrichment pipeline (faithful to docs.codeocean.com)
+servers:
+- url: https://codeocean.com/api/v1
+  description: Code Ocean hosted cloud
+- url: https://{domain}/api/v1
+  description: Code Ocean deployment (enterprise / VPC domain)
+  variables:
+    domain:
+      default: codeocean.com
+      description: Your Code Ocean deployment domain
+security:
+- accessToken: []
+tags:
+- name: Capsules
+  description: Reproducible compute capsules and pipelines
+paths:
+  /capsules/{capsule_id}:
+    get:
+      operationId: getCapsule
+      summary: Get capsule
+      description: Retrieves metadata for a Capsule. Requires the Capsule Read scope.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      responses:
+        '200':
+          description: Capsule object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capsule'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCapsule
+      summary: Delete capsule
+      description: Deletes an archived capsule or pipeline. Returns 403 if the capsule is not archived, the user lacks permissions, or the capsule is released. Requires the Capsule Write scope.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      responses:
+        '204':
+          description: Capsule deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /capsules/{capsule_id}/app_panel:
+    get:
+      operationId: getCapsuleAppPanel
+      summary: Get capsule app panel
+      description: Retrieves the app panel configuration for a Capsule. Requires the Capsule Read scope.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      - name: version
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: App panel object
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /capsules/{capsule_id}/computations:
+    get:
+      operationId: listCapsuleComputations
+      summary: List capsule computations
+      description: Retrieves the Computations run from a Capsule. Requires the Capsule Read scope.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      responses:
+        '200':
+          description: List of computation objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Computation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /capsules/{capsule_id}/data_assets:
+    post:
+      operationId: attachDataAssets
+      summary: Attach data assets to a capsule
+      description: Attaches data assets to a Capsule. Requires Capsule Read/Write and Data Asset Read/Write scopes.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                - id
+                properties:
+                  id:
+                    type: string
+                  mount:
+                    type: string
+      responses:
+        '200':
+          description: List of data asset attach results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    mount:
+                      type: string
+                    ready:
+                      type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    delete:
+      operationId: detachDataAssets
+      summary: Detach data assets from a capsule
+      description: Detaches data assets from a Capsule or Pipeline. Requires Capsule Read/Write and Data Asset Read/Write scopes.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '204':
+          description: Data assets detached
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /capsules/{capsule_id}/archive:
+    patch:
+      operationId: archiveCapsule
+      summary: Archive or unarchive a capsule
+      description: Archives or unarchives a capsule or pipeline. Requires the Capsule Write scope.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                archive:
+                  type: boolean
+      responses:
+        '204':
+          description: Archive state updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /capsules/{capsule_id}/sync:
+    post:
+      operationId: syncCapsuleGit
+      summary: Git sync a capsule
+      description: Performs a Git sync between a capsule and its external repository.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/CapsuleId'
+      responses:
+        '200':
+          description: Sync result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pushed:
+                    type: integer
+                  pulled:
+                    type: integer
+                  new_branch:
+                    type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /capsules/search:
+    post:
+      operationId: searchCapsules
+      summary: Search capsules
+      description: Searches Capsules in the deployment with filtering, sorting and cursor pagination.
+      tags:
+      - Capsules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchParams'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pipelines/search:
+    post:
+      operationId: searchPipelines
+      summary: Search pipelines
+      description: Searches Pipelines in the deployment with filtering, sorting and cursor pagination.
+      tags:
+      - Capsules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchParams'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+    SearchResults:
+      type: object
+      description: Cursor-paginated search results.
+      properties:
+        has_more:
+          type: boolean
+        next_token:
+          type: string
+        results:
+          type: array
+          items:
+            type: object
+    Computation:
+      type: object
+      description: A run of a capsule or pipeline.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created:
+          type: integer
+        owner:
+          type: string
+        run_time:
+          type: integer
+        state:
+          type: string
+          enum:
+          - initializing
+          - running
+          - finalizing
+          - completed
+          - failed
+        end_status:
+          type: string
+        exit_code:
+          type: integer
+        has_results:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            type: object
+        data_assets:
+          type: array
+          items:
+            type: object
+    Capsule:
+      type: object
+      description: A reproducible compute capsule or pipeline.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        slug:
+          type: string
+        created:
+          type: integer
+          description: Unix timestamp
+        status:
+          type: string
+        cloned_from_url:
+          type: string
+        field:
+          type: string
+    SearchParams:
+      type: object
+      description: Search request with filtering, sorting and cursor pagination.
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        next_token:
+          type: string
+        sort_order:
+          type: string
+          enum:
+          - asc
+          - desc
+        sort_field:
+          type: string
+        query:
+          type: string
+        ownership:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        origin:
+          type: string
+        favorite:
+          type: boolean
+        archived:
+          type: boolean
+        filters:
+          type: array
+          items:
+            type: object
+  parameters:
+    CapsuleId:
+      name: capsule_id
+      in: path
+      required: true
+      description: The unique identifier of the capsule or pipeline.
+      schema:
+        type: string
+      example: 4bc97533-6eb4-48ac-966f-648548a756d2
+  responses:
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication. Provide your Code Ocean access token (prefix `cop_`) as the basic-auth username with an empty password, e.g. `-u "cop_xxxxxxxxxx:"`.

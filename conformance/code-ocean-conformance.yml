@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/code-ocean-openapi.yml
+standards:
+- id: rest
+  conforms: true
+  evidence: Resource-oriented URLs, standard HTTP verbs and status codes.
+- id: json
+  conforms: true
+  evidence: Accepts and returns JSON-encoded request/response bodies.
+- id: http-basic-auth
+  conforms: true
+  evidence: securityScheme type http scheme basic (access token as username).
+- id: oauth2
+  conforms: false
+  evidence: Uses scoped personal access tokens over HTTP Basic, not OAuth2 flows.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use plain JSON { message }, not application/problem+json.
+- id: cursor-pagination
+  conforms: true
+  evidence: Search endpoints use next_token / has_more cursor pagination.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No documented Deprecation/Sunset header support.
+- id: webhooks
+  conforms: false
+  evidence: No documented webhook or event surface.

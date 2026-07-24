@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/codeocean
+packages:
+- language: python
+  registry: pypi
+  name: codeocean
+  url: https://pypi.org/project/codeocean/
+  repository: https://github.com/codeocean/codeocean-sdk-python
+  install: pip install -U codeocean
+  official: true
+  description: >-
+    Official Code Ocean Python SDK. Convenient access to the Code Ocean REST API
+    to manage Capsules, Data Assets, and Computations. Maintained by Code Ocean
+    (dev@codeocean.com), MIT licensed, requires Python >=3.9.
+- language: python
+  registry: pypi
+  name: codeocean-mcp-server
+  url: https://pypi.org/project/codeocean-mcp-server/
+  repository: https://github.com/codeocean/codeocean-mcp-server
+  install: uvx codeocean-mcp-server
+  official: true
+  description: >-
+    Official Code Ocean Model Context Protocol (MCP) server. Exposes tools to
+    search and run capsules and pipelines and manage data assets over stdio.
+    MIT licensed, requires Python >=3.10.
+- language: go
+  registry: pkg.go.dev
+  name: go-mlflow
+  url: https://github.com/codeocean/go-mlflow
+  repository: https://github.com/codeocean/go-mlflow
+  official: true
+  description: Code Ocean's Golang MLflow SDK (MIT licensed).

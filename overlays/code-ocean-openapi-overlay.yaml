@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Code Ocean API
+  version: 1.0.0
+extends: openapi/code-ocean-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: true
+    x-apievangelist-generated: '2026-07-18'
+    x-apievangelist-source: https://docs.codeocean.com/user-guide/code-ocean-api
+- target: $.info
+  update:
+    x-artifacts:
+      authentication: authentication/code-ocean-authentication.yml
+      scopes: scopes/code-ocean-scopes.yml
+      errors: errors/code-ocean-problem-types.yml
+      conventions: conventions/code-ocean-conventions.yml
+      data_model: data-model/code-ocean-data-model.yml
+      mcp: mcp/code-ocean-mcp.yml
+      packages: packages/code-ocean-packages.yml
+      skills: skills/_index.yml
+- target: $
+  update:
+    x-agentic-access: agentic-access/code-ocean-agentic-access.yml

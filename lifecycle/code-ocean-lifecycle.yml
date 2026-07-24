@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.codeocean.com/user-guide/code-ocean-api
+versioning:
+  api:
+    scheme: uri-path
+    current: v1
+    base: https://{domain}/api/v1
+  platform:
+    scheme: semver
+    docs_versions_seen: [v4.2.0, v3.5.0]
+    note: >-
+      The Code Ocean platform is versioned independently of the /api/v1 REST
+      API; the docs site exposes versioned snapshots (e.g. v4.2.0, v3.5.0). SDK
+      and MCP-server releases are each tested against a minimum platform version
+      (see their CHANGELOGs).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No public deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

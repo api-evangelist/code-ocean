@@ -1,0 +1,18 @@
+{
+  "provider": "code-ocean",
+  "sources": [
+    "code-ocean-capsules-api-openapi.yml",
+    "code-ocean-computations-api-openapi.yml",
+    "code-ocean-data-assets-api-openapi.yml"
+  ],
+  "outputs": [
+    "code-ocean-capsules-api-openapi.yml",
+    "code-ocean-computations-api-openapi.yml",
+    "code-ocean-data-assets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,53 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.codeocean.com/user-guide/code-ocean-api/errors
+format: http-status
+note: >-
+  Code Ocean returns standard HTTP status codes with a JSON body; it does not
+  advertise RFC 9457 application/problem+json. Descriptions below are verbatim
+  from the API error reference.
+envelope:
+  content_type: application/json
+  fields:
+  - message
+problems:
+- status: 200
+  title: OK
+  detail: Everything is okay.
+- status: 204
+  title: No Content
+  detail: Everything is okay. Response doesn't include a body.
+- status: 400
+  title: Bad Request
+  detail: >-
+    The request was unacceptable. Could be a missing required parameter,
+    misspelled word or bad format.
+- status: 401
+  title: Unauthorized
+  detail: No valid access token provided.
+- status: 403
+  title: Forbidden
+  detail: The access token doesn't have permissions to perform the request.
+- status: 404
+  title: Not Found
+  detail: The requested resource doesn't exist.
+- status: 423
+  title: Locked
+  detail: Workspace is locked.
+- status: 429
+  title: Too Many Requests
+  detail: >-
+    The Computation API may get overloaded with requests. We recommend a back
+    off period before sending another request.
+- status: 500
+  title: Server Error
+  detail: Code Ocean servers have an issue.
+- status: 502
+  title: Bad Gateway
+  detail: Code Ocean servers have an issue.
+- status: 503
+  title: Service Unavailable
+  detail: Code Ocean servers have an issue.
+- status: 504
+  title: Gateway Timeout
+  detail: Code Ocean servers have an issue.

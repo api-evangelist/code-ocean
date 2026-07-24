@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/code-ocean-openapi.yml
+entities:
+- name: Capsule
+  description: A reproducible compute capsule or pipeline bundling code, environment, data and results.
+  id_field: id
+- name: Pipeline
+  description: A capsule variant composed of multiple processes; shares the capsule resource surface.
+  id_field: id
+- name: Computation
+  description: A tracked run of a capsule or pipeline.
+  id_field: id
+- name: DataAsset
+  description: A versioned dataset or captured computation result.
+  id_field: id
+relationships:
+- from: Computation
+  to: Capsule
+  type: belongs_to
+  via: capsule_id
+- from: Computation
+  to: Pipeline
+  type: belongs_to
+  via: pipeline_id
+- from: Capsule
+  to: Computation
+  type: has_many
+  via: capsule_id
+  operation: listCapsuleComputations
+- from: Capsule
+  to: DataAsset
+  type: has_many
+  via: data_assets
+  operation: attachDataAssets
+- from: Computation
+  to: DataAsset
+  type: has_many
+  via: data_assets
+- from: DataAsset
+  to: Computation
+  type: belongs_to
+  via: source
+  note: A result-type Data Asset can be created from a computation's results.

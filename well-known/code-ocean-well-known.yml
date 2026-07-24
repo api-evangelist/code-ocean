@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+host: https://codeocean.com
+note: >-
+  codeocean.com is behind a bot-protection layer that returns HTTP 403 to
+  unauthenticated automated requests, so /.well-known/ discovery documents could
+  not be retrieved. docs.codeocean.com is hosted on GitBook and 307-redirects
+  /.well-known/security.txt to the GitBook app (no provider security.txt). No
+  well-known discovery documents were found.
+documents:
+- path: /.well-known/security.txt
+  status: 403
+- path: /.well-known/openid-configuration
+  status: 403
+- path: /.well-known/oauth-authorization-server
+  status: 403
+- path: /.well-known/api-catalog
+  status: 403
+- path: /.well-known/ai-plugin.json
+  status: 403
+- path: https://docs.codeocean.com/.well-known/security.txt
+  status: 307
+  note: redirects to GitBook app, not a provider security.txt

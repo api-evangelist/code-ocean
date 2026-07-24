@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.codeocean.com/user-guide/code-ocean-api
+authentication:
+  style: http-basic
+  token: scoped personal access token (prefix cop_), sent as basic-auth username with empty password
+  docs: https://docs.codeocean.com/user-guide/code-ocean-api/authentication
+  ref: authentication/code-ocean-authentication.yml
+base_url: https://{domain}/api/v1
+media_type: application/json
+idempotency:
+  supported: false
+  note: >-
+    Code Ocean does not document an idempotency-key header. Mutating operations
+    are keyed on resource IDs (capsule_id, computation_id, data_asset_id).
+pagination:
+  style: cursor
+  request_params: [offset, limit, next_token, sort_field, sort_order]
+  response_fields: [has_more, next_token, results]
+  applies_to: [searchCapsules, searchPipelines, searchDataAssets]
+  note: File listings return an items[] array (name, path, size, type).
+versioning:
+  scheme: uri-path
+  current: v1
+  note: API version is fixed in the /api/v1 path; the platform itself is separately versioned (see lifecycle/).
+error_envelope:
+  content_type: application/json
+  shape: '{ "message": "..." }'
+  ref: errors/code-ocean-problem-types.yml
+rate_limiting:
+  documented: partial
+  signal: >-
+    The Computation API can return 429 Too Many Requests under load; clients
+    should back off before retrying. No published quantitative rate-limit
+    headers.
+file_urls:
+  note: >-
+    Result and data-asset files are fetched via short-lived signed download_url
+    and view_url returned by the *​/urls endpoints, not streamed inline.

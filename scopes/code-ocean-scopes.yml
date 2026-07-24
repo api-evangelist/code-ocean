@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/code-ocean-openapi.yml
+docs: https://docs.codeocean.com/user-guide/code-ocean-api/authentication
+note: >-
+  Code Ocean authenticates with scoped personal access tokens (prefix cop_)
+  presented via HTTP Basic auth — not an OAuth2 authorization flow. Each token
+  is minted with per-resource permission scopes selected in the Access Tokens
+  UI (Account -> Access Tokens -> Generate New Token -> Select Scopes). The
+  scopes below are the resource permissions documented as API prerequisites;
+  the full enumerated list in the token UI is not published on a single docs
+  page.
+schemes:
+- name: accessToken
+  type: personal-access-token
+  transport: http-basic
+  source: openapi/code-ocean-openapi.yml
+scopes:
+- scope: Capsule - Read
+  description: Get capsule, list capsule computations, get app panel.
+  sources: [https://docs.codeocean.com/user-guide/code-ocean-api]
+- scope: Capsule - Write
+  description: Delete archived capsule/pipeline, archive/unarchive capsule.
+  sources: [https://docs.codeocean.com/user-guide/code-ocean-api]
+- scope: Data Asset - Read
+  description: Get data asset, list data asset files, generate file URLs.
+  sources: [https://docs.codeocean.com/user-guide/code-ocean-api]
+- scope: Data Asset - Write
+  description: Create, update, archive, and delete data assets.
+  sources: [https://docs.codeocean.com/user-guide/code-ocean-api]

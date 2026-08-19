@@ -12,9 +12,9 @@ server:
   auth:
     method: env
     env:
-    - CODEOCEAN_DOMAIN   # your Code Ocean instance URL
-    - CODEOCEAN_TOKEN    # API access token (cop_ prefix)
-    - AGENT_ID           # optional, identifies the calling application
+    - CODEOCEAN_DOMAIN
+    - CODEOCEAN_TOKEN
+    - AGENT_ID
   clients:
   - VS Code
   - Claude Desktop
@@ -22,12 +22,10 @@ server:
   - Roo Code
   - Cursor
   - Windsurf
-description: >-
-  Official Code Ocean MCP server. Provides tools to search and run capsules and
-  pipelines and to manage data assets. Runs locally as a stdio child process;
-  authenticates with a Code Ocean access token via environment variables.
+description: Official Code Ocean MCP server. Provides tools to search and run capsules and pipelines and
+  to manage data assets. Runs locally as a stdio child process; authenticates with a Code Ocean access
+  token via environment variables.
 tools:
-# tool names read verbatim from src/codeocean_mcp_server/tools/*.py
 - name: search_capsules
   description: Search for capsules matching specified criteria.
   source_operation: openapi/code-ocean-openapi.yml#searchCapsules
@@ -106,3 +104,9 @@ tools:
 - name: get_custom_metadata
   description: Retrieve custom metadata configuration.
   source_operation: openapi/code-ocean-openapi.yml
+deployment:
+  mode: local-stdio
+  verified: searched
+  tools: 26
+  checked: '2026-08-12'
+  source: catalog MCP census

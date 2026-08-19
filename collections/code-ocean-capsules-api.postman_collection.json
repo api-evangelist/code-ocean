@@ -1,0 +1,2199 @@
+{
+  "item": [
+    {
+      "id": "f30abee2-872a-4873-95d2-d6fb8e5421d8",
+      "name": "Capsules",
+      "description": {
+        "content": "Reproducible compute capsules and pipelines",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d958d7d-7cc9-424a-a488-af61f4126508",
+          "name": "Get capsule",
+          "request": {
+            "name": "Get capsule",
+            "description": {
+              "content": "Retrieves metadata for a Capsule. Requires the Capsule Read scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d616ad9-bf3b-4134-846a-0c8311f2a7d4",
+              "name": "Capsule object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owner\": \"string\",\n  \"slug\": \"string\",\n  \"created\": 6545,\n  \"status\": \"string\",\n  \"cloned_from_url\": \"string\",\n  \"field\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f8af15e-ad96-4a48-9771-28e64f7d18fe",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9f781c6-9345-459e-b3fa-59d84ab69aa1",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8b1fc28-a331-4370-86c1-051a6d12e919",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2879bf5c-a4dd-45c1-b5e5-e2bdae65a31b",
+          "name": "Delete capsule",
+          "request": {
+            "name": "Delete capsule",
+            "description": {
+              "content": "Deletes an archived capsule or pipeline. Returns 403 if the capsule is not archived, the user lacks permissions, or the capsule is released. Requires the Capsule Write scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "367b8df5-135a-4afc-ba5f-1e1267a6ed3c",
+              "name": "Capsule deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bacfde4-823f-45a7-b7f1-5c6f649d8247",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5aa2ddc7-6dc8-4c41-99ff-94d9029d8520",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "875c7f09-5c00-48d3-9c4e-85c4f1d1a131",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0e012bf-6447-43b5-82be-5dd54f632547",
+          "name": "Get capsule app panel",
+          "request": {
+            "name": "Get capsule app panel",
+            "description": {
+              "content": "Retrieves the app panel configuration for a Capsule. Requires the Capsule Read scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "app_panel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3564c441-fb51-4d4e-8be5-8a054aee33a5",
+              "name": "App panel object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "app_panel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0f412f7-e7ae-4c1a-bb89-bdb35473bbe4",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "app_panel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d00c68a4-0bdd-4e32-8395-60552dfcfeb3",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "app_panel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea63f189-f2f1-4e45-9d24-0aa707410caa",
+          "name": "List capsule computations",
+          "request": {
+            "name": "List capsule computations",
+            "description": {
+              "content": "Retrieves the Computations run from a Capsule. Requires the Capsule Read scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "computations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e4f1d19-e4bc-4f69-b5ce-53ebd242dc69",
+              "name": "List of computation objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"created\": 1150,\n    \"owner\": \"string\",\n    \"run_time\": 8442,\n    \"state\": \"completed\",\n    \"end_status\": \"string\",\n    \"exit_code\": 4485,\n    \"has_results\": false\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"created\": 8985,\n    \"owner\": \"string\",\n    \"run_time\": 8678,\n    \"state\": \"running\",\n    \"end_status\": \"string\",\n    \"exit_code\": 645,\n    \"has_results\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d34ba325-5df5-4b0f-9c3a-811044d1e65b",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5a140f2-2bc1-461d-8066-e789daef446e",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f3c7435-638a-435d-b709-665861d3b220",
+          "name": "Attach data assets to a capsule",
+          "request": {
+            "name": "Attach data assets to a capsule",
+            "description": {
+              "content": "Attaches data assets to a Capsule. Requires Capsule Read/Write and Data Asset Read/Write scopes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "data_assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7e161c5-3841-469b-ac35-356fd3e187a6",
+              "name": "List of data asset attach results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"mount\": \"string\",\n    \"ready\": false\n  },\n  {\n    \"id\": \"string\",\n    \"mount\": \"string\",\n    \"ready\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efb8a9cf-9ac4-41e1-b76a-96d140c35ed5",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e533753-c099-4c09-90f5-3e985511fc03",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"mount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca124fd9-5949-44d9-afcf-73b0d0db1cc4",
+          "name": "Detach data assets from a capsule",
+          "request": {
+            "name": "Detach data assets from a capsule",
+            "description": {
+              "content": "Detaches data assets from a Capsule or Pipeline. Requires Capsule Read/Write and Data Asset Read/Write scopes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "data_assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b591e76a-9059-4244-b81f-898a060b7603",
+              "name": "Data assets detached",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8eafb6cd-78cd-4f94-af1a-4709e39b823e",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15e7b79e-92de-4e62-bb48-d93ba60b79a2",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "data_assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b264187-b004-4f9c-9e62-0fd82390eb47",
+          "name": "Archive or unarchive a capsule",
+          "request": {
+            "name": "Archive or unarchive a capsule",
+            "description": {
+              "content": "Archives or unarchives a capsule or pipeline. Requires the Capsule Write scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archive\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0941d92d-e69f-4221-88f1-5efde4ca5669",
+              "name": "Archive state updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03de6e43-94b9-405f-936d-31bcc6dc0d30",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "149dda4a-910d-416e-81c8-0d0b4cfcffe6",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28ff6af2-3710-4634-91dd-32a7514bb40a",
+          "name": "Git sync a capsule",
+          "request": {
+            "name": "Git sync a capsule",
+            "description": {
+              "content": "Performs a Git sync between a capsule and its external repository.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":capsule_id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "capsule_id",
+                  "description": "(Required) The unique identifier of the capsule or pipeline."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bff7018c-8d5b-42ab-be5e-ec29fcdf0e3f",
+              "name": "Sync result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pushed\": 4620,\n  \"pulled\": 2144,\n  \"new_branch\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bae41552-3456-4ede-bbd0-c181798afb6d",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b7947c3-67f6-46de-b455-4f278d16d3b7",
+              "name": "The access token doesn't have permission to perform the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":capsule_id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "capsule_id",
+                      "description": "(Required) The unique identifier of the capsule or pipeline."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2eb77de6-ebd5-49a1-8241-1f6ff2d26d04",
+          "name": "Search capsules",
+          "request": {
+            "name": "Search capsules",
+            "description": {
+              "content": "Searches Capsules in the deployment with filtering, sorting and cursor pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79689351-a619-4aa0-85b2-92ddb899f647",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"has_more\": true,\n  \"next_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "382303d9-a022-41bb-a2f3-7bbb519fd954",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c188547-28cd-4579-836c-397ce3aab655",
+          "name": "Search pipelines",
+          "request": {
+            "name": "Search pipelines",
+            "description": {
+              "content": "Searches Pipelines in the deployment with filtering, sorting and cursor pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pipelines",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d6384c2-163d-4212-ae15-f7de3eb3b8f3",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"has_more\": true,\n  \"next_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32a5c62b-bf37-4b9d-8d56-b2b8f30f4491",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"next_token\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_field\": \"<string>\",\n  \"query\": \"<string>\",\n  \"ownership\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"origin\": \"<string>\",\n  \"favorite\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codeocean.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c9848f4-c1ea-4de3-9bdf-e980b7c294f4",
+    "name": "Code Ocean Capsules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Code Ocean REST API provides programmatic access to the Code Ocean computational research platform. It is organized around REST, accepts and returns JSON-encoded request bodies and responses, and uses standard HTTP response codes, authentication, and verbs. The API lets you manage the three core Code Ocean resources — Capsules and Pipelines (reproducible compute environments), Computations (runs of those capsules/pipelines), and Data Assets (versioned datasets) — so you can automate reproducible research and data-analysis workflows end to end.\n\nContact Support:\n Name: Code Ocean\n Email: dev@codeocean.com",
+      "type": "text/plain"
+    }
+  }
+}

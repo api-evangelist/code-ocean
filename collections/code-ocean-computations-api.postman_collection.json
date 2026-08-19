@@ -1,0 +1,1382 @@
+{
+  "item": [
+    {
+      "id": "450f0264-8841-430c-a57b-8c764b1cbbaf",
+      "name": "Computations",
+      "description": {
+        "content": "Runs of capsules and pipelines",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c09da6e2-9790-46c4-90d9-fa371e6b55d7",
+          "name": "Run a capsule or pipeline",
+          "request": {
+            "name": "Run a capsule or pipeline",
+            "description": {
+              "content": "Runs a Capsule or Pipeline, optionally attaching data assets and passing parameters. Returns the created Computation object. May return 429 when the Computation API is overloaded — back off before retrying.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capsule_id\": \"<string>\",\n  \"pipeline_id\": \"<string>\",\n  \"data_assets\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"parameters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"named_parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"processes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"nextflow_profile\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "921c4e1f-2c20-48d3-b369-aa3ae272b25c",
+              "name": "Computation object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capsule_id\": \"<string>\",\n  \"pipeline_id\": \"<string>\",\n  \"data_assets\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"parameters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"named_parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"processes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"nextflow_profile\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"created\": 2808,\n  \"owner\": \"string\",\n  \"run_time\": 2504,\n  \"state\": \"running\",\n  \"end_status\": \"string\",\n  \"exit_code\": 6889,\n  \"has_results\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "448fd80a-40fd-46ad-9e83-fa0217f25e5d",
+              "name": "The request was unacceptable (missing/invalid parameter).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capsule_id\": \"<string>\",\n  \"pipeline_id\": \"<string>\",\n  \"data_assets\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"parameters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"named_parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"processes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"nextflow_profile\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ab1eb1b-d1e9-4cc5-9117-976614d09d7b",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capsule_id\": \"<string>\",\n  \"pipeline_id\": \"<string>\",\n  \"data_assets\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"parameters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"named_parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"processes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"nextflow_profile\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbbd30fb-6506-4239-b8d6-0665619cb547",
+              "name": "Too many requests — back off before retrying.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capsule_id\": \"<string>\",\n  \"pipeline_id\": \"<string>\",\n  \"data_assets\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"parameters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"named_parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"processes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"nextflow_profile\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bff5dcf-f882-4b73-a010-a972fa34fa2f",
+          "name": "Get computation",
+          "request": {
+            "name": "Get computation",
+            "description": {
+              "content": "Retrieves information from a computational run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations",
+                ":computation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "computation_id",
+                  "description": "(Required) The unique identifier of the computation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8635e9c0-b62f-4c68-a1db-d394a21fe7a5",
+              "name": "Computation object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"created\": 2808,\n  \"owner\": \"string\",\n  \"run_time\": 2504,\n  \"state\": \"running\",\n  \"end_status\": \"string\",\n  \"exit_code\": 6889,\n  \"has_results\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c78c3d56-4a19-4bb9-af67-40e7c171af35",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a925e40-7af0-476a-ba69-bc8ed134132a",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "947ec870-110e-4b23-9dbf-5f7360488dc6",
+          "name": "Rename computation",
+          "request": {
+            "name": "Rename computation",
+            "description": {
+              "content": "Renames an existing computational run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations",
+                ":computation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "computation_id",
+                  "description": "(Required) The unique identifier of the computation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf7120a5-129b-4166-b76e-7315223ebc34",
+              "name": "Computation renamed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fcc900d-1d18-4f8e-8a5e-e61504d5cb2b",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57942de3-68c1-46c6-9345-79d1881bb607",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63681e82-a412-4844-81d0-f6f9fc4b0360",
+          "name": "Delete computation",
+          "request": {
+            "name": "Delete computation",
+            "description": {
+              "content": "Deletes a computational run, stopping it first if it is running.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations",
+                ":computation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "computation_id",
+                  "description": "(Required) The unique identifier of the computation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d30f014-dff0-41e0-8301-f48113bdae63",
+              "name": "Computation deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d1590d8c-ea48-43b0-9bed-062b7833269e",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7c55204-18a3-440b-b0dd-fa38a6b936b7",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3476bbf-d850-4ff8-8496-a59a9fb4e839",
+          "name": "List computation result files",
+          "request": {
+            "name": "List computation result files",
+            "description": {
+              "content": "Lists the result files generated by a computation. An empty path returns the /results root.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations",
+                ":computation_id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "computation_id",
+                  "description": "(Required) The unique identifier of the computation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"path\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe0b706a-69ea-4ddb-b47a-62a085b2af48",
+              "name": "Folder listing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"path\": \"string\",\n      \"size\": 5608,\n      \"type\": \"folder\"\n    },\n    {\n      \"name\": \"string\",\n      \"path\": \"string\",\n      \"size\": 4399,\n      \"type\": \"file\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57092fe8-4ceb-4100-a779-eaf6587fb52f",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7ddfeb1-d340-4c0d-a885-769bfd85cc7f",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b22fae6-ddc5-41c8-a878-7f53cb5ac85a",
+          "name": "Get result file URLs",
+          "request": {
+            "name": "Get result file URLs",
+            "description": {
+              "content": "Generates signed download and view URLs for a computation result file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "computations",
+                ":computation_id",
+                "results",
+                "urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "computation_id",
+                  "description": "(Required) The unique identifier of the computation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39bd44c3-3be0-42c7-86c2-c43d2cf507a5",
+              "name": "File URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results",
+                    "urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "path",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_url\": \"string\",\n  \"view_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fe44c74-9747-41f1-92e9-3453452db79d",
+              "name": "No valid access token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results",
+                    "urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "path",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19dc2dd7-fa0b-4b2c-a4a1-dcf0eaa13395",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "computations",
+                    ":computation_id",
+                    "results",
+                    "urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "path",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "computation_id",
+                      "description": "(Required) The unique identifier of the computation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codeocean.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9f489408-b2f2-4967-8679-90c7a76249c1",
+    "name": "Code Ocean Capsules Computations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Code Ocean REST API provides programmatic access to the Code Ocean computational research platform. It is organized around REST, accepts and returns JSON-encoded request bodies and responses, and uses standard HTTP response codes, authentication, and verbs. The API lets you manage the three core Code Ocean resources — Capsules and Pipelines (reproducible compute environments), Computations (runs of those capsules/pipelines), and Data Assets (versioned datasets) — so you can automate reproducible research and data-analysis workflows end to end.\n\nContact Support:\n Name: Code Ocean\n Email: dev@codeocean.com",
+      "type": "text/plain"
+    }
+  }
+}

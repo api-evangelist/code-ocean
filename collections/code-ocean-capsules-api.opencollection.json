@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Code Ocean Capsules API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capsules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ]
+          },
+          "docs": "Retrieves metadata for a Capsule. Requires the Capsule Read scope."
+        },
+        {
+          "info": {
+            "name": "Delete capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ]
+          },
+          "docs": "Deletes an archived capsule or pipeline. Returns 403 if the capsule is not archived, the user lacks permissions, or the capsule is released. Requires the Capsule Write scope."
+        },
+        {
+          "info": {
+            "name": "Get capsule app panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/app_panel",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves the app panel configuration for a Capsule. Requires the Capsule Read scope."
+        },
+        {
+          "info": {
+            "name": "List capsule computations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/computations",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ]
+          },
+          "docs": "Retrieves the Computations run from a Capsule. Requires the Capsule Read scope."
+        },
+        {
+          "info": {
+            "name": "Attach data assets to a capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/data_assets",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attaches data assets to a Capsule. Requires Capsule Read/Write and Data Asset Read/Write scopes."
+        },
+        {
+          "info": {
+            "name": "Detach data assets from a capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/data_assets",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detaches data assets from a Capsule or Pipeline. Requires Capsule Read/Write and Data Asset Read/Write scopes."
+        },
+        {
+          "info": {
+            "name": "Archive or unarchive a capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/archive",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archives or unarchives a capsule or pipeline. Requires the Capsule Write scope."
+        },
+        {
+          "info": {
+            "name": "Git sync a capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/capsules/:capsule_id/sync",
+            "params": [
+              {
+                "name": "capsule_id",
+                "value": "4bc97533-6eb4-48ac-966f-648548a756d2",
+                "type": "path",
+                "description": "The unique identifier of the capsule or pipeline."
+              }
+            ]
+          },
+          "docs": "Performs a Git sync between a capsule and its external repository."
+        },
+        {
+          "info": {
+            "name": "Search capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/capsules/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Searches Capsules in the deployment with filtering, sorting and cursor pagination."
+        },
+        {
+          "info": {
+            "name": "Search pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/pipelines/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Searches Pipelines in the deployment with filtering, sorting and cursor pagination."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

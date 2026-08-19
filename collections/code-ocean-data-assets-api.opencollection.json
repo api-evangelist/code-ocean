@@ -1,0 +1,233 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Code Ocean Capsules Data Assets API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create data asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/data_assets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a Data Asset from an S3 bucket or from a computation's results."
+        },
+        {
+          "info": {
+            "name": "Get data asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ]
+          },
+          "docs": "Retrieves metadata for a specific Data Asset."
+        },
+        {
+          "info": {
+            "name": "Update data asset metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a Data Asset's name, description, tags, mount and custom metadata."
+        },
+        {
+          "info": {
+            "name": "Delete data asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ]
+          },
+          "docs": "Deletes a Data Asset."
+        },
+        {
+          "info": {
+            "name": "Archive or unarchive a data asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id/archive",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              },
+              {
+                "name": "archive",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Archives or unarchives a Data Asset."
+        },
+        {
+          "info": {
+            "name": "Search data assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/data_assets/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Searches Data Assets with filtering, sorting and cursor pagination."
+        },
+        {
+          "info": {
+            "name": "Update data asset permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id/permissions",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates user, group and everyone access permissions for a Data Asset."
+        },
+        {
+          "info": {
+            "name": "Transfer data asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id/transfer",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Admin-only. Transfers a Data Asset's files to a different S3 storage location."
+        },
+        {
+          "info": {
+            "name": "List data asset files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id/files",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists files internal to a Data Asset, optionally under a folder path."
+        },
+        {
+          "info": {
+            "name": "Get data asset file URLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codeocean.com/api/v1/data_assets/:data_asset_id/files/urls",
+            "params": [
+              {
+                "name": "data_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the data asset."
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generates signed download and view URLs for a file within a Data Asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

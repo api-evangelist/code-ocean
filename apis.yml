@@ -109,6 +109,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.codeocean.com/
 - type: Overlay
   url: overlays/code-ocean-openapi-overlay.yaml
 - type: DeveloperPortal

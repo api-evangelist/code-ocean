@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Code Ocean Capsules Computations API
+  title: Code Ocean Computations API
   version: v1
-  description: The Code Ocean REST API provides programmatic access to the Code Ocean computational research platform. It is organized around REST, accepts and returns JSON-encoded request bodies and responses, and uses standard HTTP response codes, authentication, and verbs. The API lets you manage the three core Code Ocean resources — Capsules and Pipelines (reproducible compute environments), Computations (runs of those capsules/pipelines), and Data Assets (versioned datasets) — so you can automate reproducible research and data-analysis workflows end to end.
+  description: The Code Ocean REST API provides programmatic access to the Code Ocean computational research platform.
   contact:
     name: Code Ocean
     email: dev@codeocean.com
@@ -162,6 +162,38 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    RunParams:
+      type: object
+      description: Parameters for running a capsule or pipeline.
+      properties:
+        capsule_id:
+          type: string
+        pipeline_id:
+          type: string
+        data_assets:
+          type: array
+          items:
+            type: object
+        parameters:
+          type: array
+          items:
+            type: string
+        named_parameters:
+          type: array
+          items:
+            type: object
+        processes:
+          type: array
+          items:
+            type: object
+        nextflow_profile:
+          type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
     Folder:
       type: object
       properties:
@@ -181,12 +213,13 @@ components:
                 enum:
                 - file
                 - folder
-    Error:
+    FileURLs:
       type: object
       properties:
-        message:
+        download_url:
           type: string
-          description: Human-readable error message
+        view_url:
+          type: string
     Computation:
       type: object
       description: A run of a capsule or pipeline.
@@ -223,46 +256,7 @@ components:
           type: array
           items:
             type: object
-    RunParams:
-      type: object
-      description: Parameters for running a capsule or pipeline.
-      properties:
-        capsule_id:
-          type: string
-        pipeline_id:
-          type: string
-        data_assets:
-          type: array
-          items:
-            type: object
-        parameters:
-          type: array
-          items:
-            type: string
-        named_parameters:
-          type: array
-          items:
-            type: object
-        processes:
-          type: array
-          items:
-            type: object
-        nextflow_profile:
-          type: string
-    FileURLs:
-      type: object
-      properties:
-        download_url:
-          type: string
-        view_url:
-          type: string
   responses:
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     BadRequest:
       description: The request was unacceptable (missing/invalid parameter).
       content:
@@ -271,6 +265,12 @@ components:
             $ref: '#/components/schemas/Error'
     NotFound:
       description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: No valid access token provided.
       content:
         application/json:
           schema:

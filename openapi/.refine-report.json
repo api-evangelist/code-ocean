@@ -1,9 +1,7 @@
 {
   "provider": "code-ocean",
   "sources": [
-    "code-ocean-capsules-api-openapi.yml",
-    "code-ocean-computations-api-openapi.yml",
-    "code-ocean-data-assets-api-openapi.yml"
+    "_original/code-ocean-openapi.yml"
   ],
   "outputs": [
     "code-ocean-capsules-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "code-ocean-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "code-ocean-capsules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "code-ocean-computations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "code-ocean-data-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

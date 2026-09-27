@@ -299,95 +299,15 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    DataAssetId:
+      name: data_asset_id
+      in: path
+      required: true
+      description: The unique identifier of the data asset.
+      schema:
+        type: string
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-    SearchParams:
-      type: object
-      description: Search request with filtering, sorting and cursor pagination.
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        next_token:
-          type: string
-        sort_order:
-          type: string
-          enum:
-          - asc
-          - desc
-        sort_field:
-          type: string
-        query:
-          type: string
-        ownership:
-          type: string
-        status:
-          type: string
-        type:
-          type: string
-        origin:
-          type: string
-        favorite:
-          type: boolean
-        archived:
-          type: boolean
-        filters:
-          type: array
-          items:
-            type: object
-    Folder:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              path:
-                type: string
-              size:
-                type: integer
-              type:
-                type: string
-                enum:
-                - file
-                - folder
-    FileURLs:
-      type: object
-      properties:
-        download_url:
-          type: string
-        view_url:
-          type: string
-    DataAssetParams:
-      type: object
-      description: Parameters for creating a data asset.
-      required:
-      - name
-      - mount
-      - tags
-      - source
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        mount:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        source:
-          type: object
     SearchResults:
       type: object
       description: Cursor-paginated search results.
@@ -427,9 +347,97 @@ components:
             type: string
         custom_metadata:
           type: object
+    Folder:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              path:
+                type: string
+              size:
+                type: integer
+              type:
+                type: string
+                enum:
+                - file
+                - folder
+    FileURLs:
+      type: object
+      properties:
+        download_url:
+          type: string
+        view_url:
+          type: string
+    SearchParams:
+      type: object
+      description: Search request with filtering, sorting and cursor pagination.
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        next_token:
+          type: string
+        sort_order:
+          type: string
+          enum:
+          - asc
+          - desc
+        sort_field:
+          type: string
+        query:
+          type: string
+        ownership:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        origin:
+          type: string
+        favorite:
+          type: boolean
+        archived:
+          type: boolean
+        filters:
+          type: array
+          items:
+            type: object
+    DataAssetParams:
+      type: object
+      description: Parameters for creating a data asset.
+      required:
+      - name
+      - mount
+      - tags
+      - source
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        mount:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        source:
+          type: object
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
   responses:
-    BadRequest:
-      description: The request was unacceptable (missing/invalid parameter).
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
       content:
         application/json:
           schema:
@@ -446,20 +454,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: The access token doesn't have permission to perform the request.
+    BadRequest:
+      description: The request was unacceptable (missing/invalid parameter).
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    DataAssetId:
-      name: data_asset_id
-      in: path
-      required: true
-      description: The unique identifier of the data asset.
-      schema:
-        type: string
   securitySchemes:
     accessToken:
       type: http

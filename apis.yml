@@ -49,6 +49,9 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-18'
 image: https://raw.githubusercontent.com/codeocean/branding/main/logo/CO_logo_135x72.png
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-24
 tags:
 - Company
 - Reproducible Research

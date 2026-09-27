@@ -276,12 +276,42 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
+    Computation:
       type: object
+      description: A run of a capsule or pipeline.
       properties:
-        message:
+        id:
           type: string
-          description: Human-readable error message
+        name:
+          type: string
+        created:
+          type: integer
+        owner:
+          type: string
+        run_time:
+          type: integer
+        state:
+          type: string
+          enum:
+          - initializing
+          - running
+          - finalizing
+          - completed
+          - failed
+        end_status:
+          type: string
+        exit_code:
+          type: integer
+        has_results:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            type: object
+        data_assets:
+          type: array
+          items:
+            type: object
     SearchParams:
       type: object
       description: Search request with filtering, sorting and cursor pagination.
@@ -340,42 +370,6 @@ components:
           type: string
         field:
           type: string
-    Computation:
-      type: object
-      description: A run of a capsule or pipeline.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        created:
-          type: integer
-        owner:
-          type: string
-        run_time:
-          type: integer
-        state:
-          type: string
-          enum:
-          - initializing
-          - running
-          - finalizing
-          - completed
-          - failed
-        end_status:
-          type: string
-        exit_code:
-          type: integer
-        has_results:
-          type: boolean
-        parameters:
-          type: array
-          items:
-            type: object
-        data_assets:
-          type: array
-          items:
-            type: object
     SearchResults:
       type: object
       description: Cursor-paginated search results.
@@ -388,15 +382,24 @@ components:
           type: array
           items:
             type: object
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+  parameters:
+    CapsuleId:
+      name: capsule_id
+      in: path
+      required: true
+      description: The unique identifier of the capsule or pipeline.
+      schema:
+        type: string
+      example: 4bc97533-6eb4-48ac-966f-648548a756d2
   responses:
     NotFound:
       description: The requested resource doesn't exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: No valid access token provided.
       content:
         application/json:
           schema:
@@ -407,15 +410,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    CapsuleId:
-      name: capsule_id
-      in: path
-      required: true
-      description: The unique identifier of the capsule or pipeline.
-      schema:
-        type: string
-      example: 4bc97533-6eb4-48ac-966f-648548a756d2
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     accessToken:
       type: http

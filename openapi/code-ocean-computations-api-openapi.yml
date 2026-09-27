@@ -161,65 +161,32 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    TooManyRequests:
+      description: Too many requests — back off before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request was unacceptable (missing/invalid parameter).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    RunParams:
-      type: object
-      description: Parameters for running a capsule or pipeline.
-      properties:
-        capsule_id:
-          type: string
-        pipeline_id:
-          type: string
-        data_assets:
-          type: array
-          items:
-            type: object
-        parameters:
-          type: array
-          items:
-            type: string
-        named_parameters:
-          type: array
-          items:
-            type: object
-        processes:
-          type: array
-          items:
-            type: object
-        nextflow_profile:
-          type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-    Folder:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              path:
-                type: string
-              size:
-                type: integer
-              type:
-                type: string
-                enum:
-                - file
-                - folder
-    FileURLs:
-      type: object
-      properties:
-        download_url:
-          type: string
-        view_url:
-          type: string
     Computation:
       type: object
       description: A run of a capsule or pipeline.
@@ -256,31 +223,64 @@ components:
           type: array
           items:
             type: object
-  responses:
-    BadRequest:
-      description: The request was unacceptable (missing/invalid parameter).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource doesn't exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Too many requests — back off before retrying.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    RunParams:
+      type: object
+      description: Parameters for running a capsule or pipeline.
+      properties:
+        capsule_id:
+          type: string
+        pipeline_id:
+          type: string
+        data_assets:
+          type: array
+          items:
+            type: object
+        parameters:
+          type: array
+          items:
+            type: string
+        named_parameters:
+          type: array
+          items:
+            type: object
+        processes:
+          type: array
+          items:
+            type: object
+        nextflow_profile:
+          type: string
+    Folder:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              path:
+                type: string
+              size:
+                type: integer
+              type:
+                type: string
+                enum:
+                - file
+                - folder
+    FileURLs:
+      type: object
+      properties:
+        download_url:
+          type: string
+        view_url:
+          type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
   parameters:
     ComputationId:
       name: computation_id

@@ -299,27 +299,13 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    DataAssetId:
-      name: data_asset_id
-      in: path
-      required: true
-      description: The unique identifier of the data asset.
-      schema:
-        type: string
   schemas:
-    SearchResults:
+    Error:
       type: object
-      description: Cursor-paginated search results.
       properties:
-        has_more:
-          type: boolean
-        next_token:
+        message:
           type: string
-        results:
-          type: array
-          items:
-            type: object
+          description: Human-readable error message
     DataAsset:
       type: object
       description: A versioned dataset or captured result data.
@@ -347,6 +333,27 @@ components:
             type: string
         custom_metadata:
           type: object
+    DataAssetParams:
+      type: object
+      description: Parameters for creating a data asset.
+      required:
+      - name
+      - mount
+      - tags
+      - source
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        mount:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        source:
+          type: object
     Folder:
       type: object
       properties:
@@ -366,13 +373,18 @@ components:
                 enum:
                 - file
                 - folder
-    FileURLs:
+    SearchResults:
       type: object
+      description: Cursor-paginated search results.
       properties:
-        download_url:
+        has_more:
+          type: boolean
+        next_token:
           type: string
-        view_url:
-          type: string
+        results:
+          type: array
+          items:
+            type: object
     SearchParams:
       type: object
       description: Search request with filtering, sorting and cursor pagination.
@@ -408,36 +420,16 @@ components:
           type: array
           items:
             type: object
-    DataAssetParams:
-      type: object
-      description: Parameters for creating a data asset.
-      required:
-      - name
-      - mount
-      - tags
-      - source
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        mount:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        source:
-          type: object
-    Error:
+    FileURLs:
       type: object
       properties:
-        message:
+        download_url:
           type: string
-          description: Human-readable error message
+        view_url:
+          type: string
   responses:
-    Forbidden:
-      description: The access token doesn't have permission to perform the request.
+    Unauthorized:
+      description: No valid access token provided.
       content:
         application/json:
           schema:
@@ -448,18 +440,26 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     BadRequest:
       description: The request was unacceptable (missing/invalid parameter).
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    DataAssetId:
+      name: data_asset_id
+      in: path
+      required: true
+      description: The unique identifier of the data asset.
+      schema:
+        type: string
   securitySchemes:
     accessToken:
       type: http

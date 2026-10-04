@@ -275,25 +275,26 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    NotFound:
+      description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-    SearchResults:
-      type: object
-      description: Cursor-paginated search results.
-      properties:
-        has_more:
-          type: boolean
-        next_token:
-          type: string
-        results:
-          type: array
-          items:
-            type: object
     SearchParams:
       type: object
       description: Search request with filtering, sorting and cursor pagination.
@@ -329,6 +330,47 @@ components:
           type: array
           items:
             type: object
+    SearchResults:
+      type: object
+      description: Cursor-paginated search results.
+      properties:
+        has_more:
+          type: boolean
+        next_token:
+          type: string
+        results:
+          type: array
+          items:
+            type: object
+    Capsule:
+      type: object
+      description: A reproducible compute capsule or pipeline.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        slug:
+          type: string
+        created:
+          type: integer
+          description: Unix timestamp
+        status:
+          type: string
+        cloned_from_url:
+          type: string
+        field:
+          type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
     Computation:
       type: object
       description: A run of a capsule or pipeline.
@@ -365,48 +407,6 @@ components:
           type: array
           items:
             type: object
-    Capsule:
-      type: object
-      description: A reproducible compute capsule or pipeline.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        owner:
-          type: string
-        slug:
-          type: string
-        created:
-          type: integer
-          description: Unix timestamp
-        status:
-          type: string
-        cloned_from_url:
-          type: string
-        field:
-          type: string
-  responses:
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource doesn't exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: The access token doesn't have permission to perform the request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     CapsuleId:
       name: capsule_id

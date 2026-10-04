@@ -299,92 +299,32 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request was unacceptable (missing/invalid parameter).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-    DataAsset:
-      type: object
-      description: A versioned dataset or captured result data.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        created:
-          type: integer
-        type:
-          type: string
-          enum:
-          - dataset
-          - result
-        mount:
-          type: string
-        state:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        custom_metadata:
-          type: object
-    DataAssetParams:
-      type: object
-      description: Parameters for creating a data asset.
-      required:
-      - name
-      - mount
-      - tags
-      - source
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        mount:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        source:
-          type: object
-    Folder:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              path:
-                type: string
-              size:
-                type: integer
-              type:
-                type: string
-                enum:
-                - file
-                - folder
-    SearchResults:
-      type: object
-      description: Cursor-paginated search results.
-      properties:
-        has_more:
-          type: boolean
-        next_token:
-          type: string
-        results:
-          type: array
-          items:
-            type: object
     SearchParams:
       type: object
       description: Search request with filtering, sorting and cursor pagination.
@@ -420,6 +360,91 @@ components:
           type: array
           items:
             type: object
+    SearchResults:
+      type: object
+      description: Cursor-paginated search results.
+      properties:
+        has_more:
+          type: boolean
+        next_token:
+          type: string
+        results:
+          type: array
+          items:
+            type: object
+    DataAssetParams:
+      type: object
+      description: Parameters for creating a data asset.
+      required:
+      - name
+      - mount
+      - tags
+      - source
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        mount:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        source:
+          type: object
+    DataAsset:
+      type: object
+      description: A versioned dataset or captured result data.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: integer
+        type:
+          type: string
+          enum:
+          - dataset
+          - result
+        mount:
+          type: string
+        state:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        custom_metadata:
+          type: object
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+    Folder:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              path:
+                type: string
+              size:
+                type: integer
+              type:
+                type: string
+                enum:
+                - file
+                - folder
     FileURLs:
       type: object
       properties:
@@ -427,31 +452,6 @@ components:
           type: string
         view_url:
           type: string
-  responses:
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource doesn't exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request was unacceptable (missing/invalid parameter).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: The access token doesn't have permission to perform the request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     DataAssetId:
       name: data_asset_id

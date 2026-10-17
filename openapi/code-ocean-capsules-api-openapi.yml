@@ -275,25 +275,15 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    NotFound:
-      description: The requested resource doesn't exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: The access token doesn't have permission to perform the request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: No valid access token provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    CapsuleId:
+      name: capsule_id
+      in: path
+      required: true
+      description: The unique identifier of the capsule or pipeline.
+      schema:
+        type: string
+      example: 4bc97533-6eb4-48ac-966f-648548a756d2
   schemas:
     SearchParams:
       type: object
@@ -330,18 +320,12 @@ components:
           type: array
           items:
             type: object
-    SearchResults:
+    Error:
       type: object
-      description: Cursor-paginated search results.
       properties:
-        has_more:
-          type: boolean
-        next_token:
+        message:
           type: string
-        results:
-          type: array
-          items:
-            type: object
+          description: Human-readable error message
     Capsule:
       type: object
       description: A reproducible compute capsule or pipeline.
@@ -365,12 +349,18 @@ components:
           type: string
         field:
           type: string
-    Error:
+    SearchResults:
       type: object
+      description: Cursor-paginated search results.
       properties:
-        message:
+        has_more:
+          type: boolean
+        next_token:
           type: string
-          description: Human-readable error message
+        results:
+          type: array
+          items:
+            type: object
     Computation:
       type: object
       description: A run of a capsule or pipeline.
@@ -407,15 +397,25 @@ components:
           type: array
           items:
             type: object
-  parameters:
-    CapsuleId:
-      name: capsule_id
-      in: path
-      required: true
-      description: The unique identifier of the capsule or pipeline.
-      schema:
-        type: string
-      example: 4bc97533-6eb4-48ac-966f-648548a756d2
+  responses:
+    NotFound:
+      description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: The access token doesn't have permission to perform the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: No valid access token provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     accessToken:
       type: http

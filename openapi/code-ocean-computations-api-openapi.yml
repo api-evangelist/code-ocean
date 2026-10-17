@@ -162,14 +162,14 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource doesn't exist.
+    TooManyRequests:
+      description: Too many requests — back off before retrying.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Too many requests — back off before retrying.
+    NotFound:
+      description: The requested resource doesn't exist.
       content:
         application/json:
           schema:
@@ -187,6 +187,13 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    FileURLs:
+      type: object
+      properties:
+        download_url:
+          type: string
+        view_url:
+          type: string
     RunParams:
       type: object
       description: Parameters for running a capsule or pipeline.
@@ -213,6 +220,25 @@ components:
             type: object
         nextflow_profile:
           type: string
+    Folder:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              path:
+                type: string
+              size:
+                type: integer
+              type:
+                type: string
+                enum:
+                - file
+                - folder
     Error:
       type: object
       properties:
@@ -255,32 +281,6 @@ components:
           type: array
           items:
             type: object
-    Folder:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              path:
-                type: string
-              size:
-                type: integer
-              type:
-                type: string
-                enum:
-                - file
-                - folder
-    FileURLs:
-      type: object
-      properties:
-        download_url:
-          type: string
-        view_url:
-          type: string
   parameters:
     ComputationId:
       name: computation_id

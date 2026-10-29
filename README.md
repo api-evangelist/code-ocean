@@ -64,6 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Code Ocean is a company surfaced as a portfolio company of battery-ventures and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Code Ocean is a computational research platform that helps scientists, engineers, and research organizations produce, manage, and reproduce computational science at scale. Its cloud environment centers on three resources — Capsules and Pipelines (self-contained, versioned compute environments that bundle code, data, environment, and results), Computations (tracked runs of those capsules and pipelines), and Data Assets (versioned datasets and captured results). Code Ocean exposes a REST API, an official Python SDK, and an official Model Context Protocol (MCP) server so teams can automate reproducible research, integrate the platform into data pipelines, and drive capsules and data assets from agents. The company was surfaced as a Battery Ventures portfolio company and is widely used across life sciences, biotech, and academic research computing.
 
-Backed by: battery-ventures
+**Areas:** Company · Reproducible Research · Computational Science · Data Science · Research Computing · Life Sciences · Pipelines · MLOps · Cloud Platform · Developer Tools
+
+## Code Ocean on APIs.io
+
+Everything profiled for Code Ocean is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/code-ocean/](https://apis.io/providers/code-ocean/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Code Ocean Capsules API](https://apis.io/apis/code-ocean/code-ocean-capsules-api/) — Reproducible compute capsules and pipelines
+- [Code Ocean Computations API](https://apis.io/apis/code-ocean/code-ocean-computations-api/) — Runs of capsules and pipelines
+- [Code Ocean Data Assets API](https://apis.io/apis/code-ocean/code-ocean-data-assets-api/) — Versioned datasets and result data
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [codeocean](https://apis.io/servers/code-ocean/codeocean/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Code Ocean Agentic Access](https://apis.io/agentic-access/code-ocean/code-ocean-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Code Ocean Capsules API](https://apis.io/collections/code-ocean/open-code-ocean-capsules-api/)
+- [Code Ocean Capsules Computations API](https://apis.io/collections/code-ocean/open-code-ocean-computations-api/)
+- [Code Ocean Capsules Data Assets API](https://apis.io/collections/code-ocean/open-code-ocean-data-assets-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Code Ocean Openapi Overlay](https://apis.io/overlays/code-ocean/code-ocean-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Code Ocean Authentication](https://apis.io/security/code-ocean/code-ocean-authentication/)
+- [Code Ocean Domain Security](https://apis.io/security/code-ocean/code-ocean-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Code Ocean Scopes](https://apis.io/scopes/code-ocean/code-ocean-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.codeocean.com/)
+- [Documentation](https://docs.codeocean.com/user-guide/code-ocean-api)
+- [Getting started](https://docs.codeocean.com/user-guide/key-concepts)
+- [API reference](https://docs.codeocean.com/user-guide/code-ocean-api)
+- [GitHub](https://github.com/codeocean)
+
+## API Evangelist rating
+
+**Kin Score 34.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 56.7 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 0.0 |
+
+**Agent readiness 24.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/code-ocean/](https://apis.io/providers/code-ocean/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Code Ocean: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/code-ocean/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
